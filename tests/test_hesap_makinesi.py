@@ -27,4 +27,4 @@ def test_toplama2():
     assert toplama(4, 7) == 12
 
 def test_çarpma2():
-    assert çarpma(12, 0.1) == 1.2
+    assert çarpma(12, 1.1) == 13
