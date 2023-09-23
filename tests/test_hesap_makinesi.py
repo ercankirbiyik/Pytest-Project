@@ -10,6 +10,10 @@ import pytest
     '@pytest.mark.skipif' anatasyonu parantez içinde verilen koşul sağlanmazsa veya sağlanırsa testi çalıştır anlamına gelir.
     
     'python3 -m pytest -vm smoke' komutu ile sadece @pytest.mark.smoke anatasyonu ile işaretlenmiş testler çalıştırılabilir
+       -> smoke bizim kendi verdiğimiz bir işaretleme grubudur, buna istediğimiz ismi verebiliriz...
+       -> bir senaryoda birden fazla anatasyon olabilir ve birden fazla işaretleme yapılabilir...
+       -> 'python3 -m pytest -vm smoke and elma' komutu ile anatasyonları farklı olan iki ayrı senaryo grubu çalıştırılabilir...
+    
 '''
 
 sistem = "qa"
@@ -38,6 +42,7 @@ def test_bölme():
     assert 11.7 != bölme(36, 3.1)
 
 
+@pytest.mark.regresion
 # skip anatasyonu bu testi atla anlamına gelir ve testi çalıştırmaz
 @pytest.mark.skip(reason = "Testlerin neden skip edildiğine dair açıklama")
 def test_toplama2():
@@ -52,6 +57,8 @@ def test_çarpma2():
 
 # skipif anatasyonu herhangi bir sebepten bir testin koşmaması ihtimali var ise ve koşumu engelleyen bir durum var ise
 # skip edilmesi için verilen anatasyondur
+
+@pytest.mark.elma
 @pytest.mark.skipif(sistem == "qa", reason = "qa kodu hatalı olduğu için skip edildi")  # sistem elementi dev yapılır ise test pass olacaktır
 def test_çarpma2():
     assert 12 == çarpma(3, 4)
@@ -60,5 +67,7 @@ def test_çarpma2():
 # smoke anatasyonu testlere karışık olarak verilen spesifik bir anatasyon ve koşulması istenen bütün senaryolara verilerek
 # terminalde 'python3 -m pytest -vm smoke' komutu ile sadece bu testler çalıştırılabilir
 @pytest.mark.smoke
+@pytest.mark.regresion
+@pytest.mark.elma
 def test_bölme2():
     assert 11.7 != bölme(36, 3)

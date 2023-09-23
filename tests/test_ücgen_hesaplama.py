@@ -21,6 +21,7 @@ def test_cevre_hesaplama2():
     print(" 'Çevre hesaplama' ")
 
 
+@pytest.mark.regresion
 @pytest.mark.smoke
 def test_alan_hesaplama():
     assert alan_hesaplama(12, 9) == 54
