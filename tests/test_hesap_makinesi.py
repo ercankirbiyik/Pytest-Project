@@ -13,6 +13,10 @@ import pytest
        -> smoke bizim kendi verdiğimiz bir işaretleme grubudur, buna istediğimiz ismi verebiliriz...
        -> bir senaryoda birden fazla anatasyon olabilir ve birden fazla işaretleme yapılabilir...
        -> 'python3 -m pytest -vm smoke and elma' komutu ile anatasyonları farklı olan iki ayrı senaryo grubu çalıştırılabilir...
+       
+       
+       
+    'Fixture'lar paytestte testten önce ve sonrasında test ortamının hazırlanması veya dataların silinmesi gibi işlemleri yapmamızı sağlayan anatasyondur.
     
 '''
 
